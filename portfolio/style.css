@@ -1,0 +1,452 @@
+/* --- 1. GLOBAL AYARLAR VE RENK DEĞİŞKENLERİ --- */
+:root {
+    --bg-dark: #0a0a0a;             /* Derin Siyah (Arka Plan) */
+    --text-white: #ffffff;          /* Beyaz (Ana Metin) */
+    --text-gray: #a3a3a3;           /* Koyu Gri (Alt Metin) */
+    --accent: #26d0ce;              /* Canlı Turkuaz (Vurgu Rengi) */
+    --accent-hover: #1a2980;        /* Koyu Mavi (Buton Hover) */
+    --font-main: 'Poppins', sans-serif;
+    --transition-smooth: 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Sayfa içi geçişleri yumuşatır */
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden; /* Yan kaydırma çubuğunu gizler */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. ARKA PLAN VE CAM (GLASSMORPHISM) EFEKTLERİ --- */
+
+/* Arka planda dönen bulanık daire */
+.background-blob {
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(38,208,206,0.3) 0%, rgba(26,41,128,0.3) 100%);
+    border-radius: 50%;
+    filter: blur(80px); /* Bulanıklık efekti */
+    z-index: -1;
+}
+
+/* Cam Efektli Menü */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(10, 10, 10, 0.7); /* Şeffaf koyu arka plan */
+    backdrop-filter: blur(10px);        /* Arkadaki bulanıklık */
+    -webkit-backdrop-filter: blur(10px); /* Safari uyumu */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.glass-nav .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-white);
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-weight: 400;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* --- 3. ANA KARŞILAMA EKRANI (HERO) TASARIMI --- */
+.hero {
+    height: 100vh; /* Ekranın tamamını kaplar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px; /* Menü yüksekliği kadar boşluk */
+}
+
+.hero h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+/* Gradyanlı Vurgu Metni (Turkuazdan Maviye) */
+.accent-text {
+    background: linear-gradient(90deg, var(--accent) 0%, #1a2980 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Editörün bizden istediği standart kod bu */
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-gray);
+    max-width: 650px;
+    margin: 0 auto 40px auto; /* Merkeze alır */
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* --- 4. BUTON TASARIMLARI (PREMIUM HİSSİ) --- */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary, .btn-secondary, .btn-sm {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+/* Ana Buton: Turkuaz */
+.btn-primary {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff; /* Beyaz Hover */
+    transform: translateY(-3px); /* Yukarı hafif zıplama */
+}
+
+/* İkincil Buton: Cam Efektli */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Menüdeki Küçük İletişim Butonu */
+.btn-sm {
+    padding: 8px 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.btn-sm:hover {
+    background-color: var(--accent);
+    color: #000;
+}
+
+/* --- 5. HAFİF GİRİŞ ANİMASYONLARI (FADE-IN SLIDE-UP) --- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    opacity: 0; /* Başlangıçta görünmez */
+    animation: fade-in-up 1s ease forwards;
+}
+
+/* Animasyon gecikmeleri (Yazıların sırayla gelmesi için) */
+.animation-delay-1 { animation-delay: 0.3s; }
+.animation-delay-2 { animation-delay: 0.6s; }
+
+/* --- 6. PROJELER BÖLÜMÜ VE CAM KARTLAR --- */
+.projects {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Izgara Sistemi (Yan yana dizilim) */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Cam Efektli Proje Kartı */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px); /* Üzerine gelince hafif yukarı kalkar */
+    border-color: rgba(38, 208, 206, 0.3); /* Turkuaz hafif bir parlama */
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Teknoloji Etiketleri (HTML, CSS vb.) */
+.tech-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.tech-tags span {
+    font-size: 12px;
+    background: rgba(38, 208, 206, 0.1);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.card-actions {
+    margin-top: auto;
+}
+
+/* --- 7. GERÇEK PROJE GÖRSELLERİ İÇİN İNCE AYAR --- */
+.card-img {
+    width: 100%;             /* Kartın genişliğine tam otur */
+    height: 200px;           /* Yüksekliği sabit tutalım (yamukluğu önler) */
+    border-radius: 12px;     /* Görselin köşelerini yumuşat */
+    margin-bottom: 20px;     /* Alttaki yazıdan uzaklaş */
+    
+    /* EN KRİTİK KODLAR: Fotoğrafın kartın içinde nasıl duracağını ayarlar */
+    object-fit: cover;       /* Fotoğrafı uzatıp yamultmadan kutuya tam sığdırır, fazlalığı kırpar */
+    object-position: center;  /* Fotoğrafın tam merkezine odaklanır */
+    
+    transition: var(--transition-smooth); /* Hover efektini yumuşatır */
+}
+
+/* Kartın üzerine gelince fotoğrafın hafif büyüme efekti (Etkileyicilik Kat) */
+.glass-card:hover .card-img {
+    transform: scale(1.05); /* Fotoğrafı %5 büyüt */
+}
+
+/* ==========================================================================
+   YENİ EKLENEN ÖZELLİKLER (İLETİŞİM FORMU VE MOBİL UYUMLULUK)
+   ========================================================================== */
+
+/* --- 8. İLETİŞİM FORMU TASARIMI --- */
+.contact {
+    padding: 100px 0;
+}
+
+.glass-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left; /* Yazıları sola yasla */
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 16px;
+    border-radius: 8px;
+    color: var(--text-white);
+    font-family: var(--font-main);
+    font-size: 15px;
+    transition: var(--transition-smooth);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 14px;
+}
+
+/* --- 9. MOBİL UYUMLULUK (HAMBURGER MENÜ VE KÜÇÜLTME) --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* Telefon Ekranları İçin (768px altı) */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 101;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Başlangıçta ekranın dışında */
+        width: 75%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98); /* Siyah arka plan */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 35px;
+        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0; /* Menü açıldığında içeri girer */
+    }
+
+    /* Hamburgerin "X" İşaretine Dönüşme Efekti */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Telefondaki Başlıkları Sığdırmak İçin Küçültme */
+    .hero h1 {
+        font-size: 38px;
+    }
+    .hero p {
+        font-size: 15px;
+    }
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+}
+
+/* --- 10. HAKKIMDA BÖLÜMÜ TASARIMI (MİNİMALİST) --- */
+.about {
+    padding: 100px 0;
+}
+
+.about-content {
+    max-width: 800px; /* Kartın genişliğini yazının rahat okunması için sınırlar */
+    margin: 0 auto;   /* Kartı tam merkeze alır */
+    padding: 40px 60px; /* İç boşlukları ferahlatır */
+    text-align: center; /* Yazıları şık bir şekilde ortalar */
+}
+
+.about-text p {
+    font-size: 17px; /* Yazıyı bir tık büyütüp okunaklı yaptık */
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Telefonlar İçin Daraltma */
+@media screen and (max-width: 768px) {
+    .about-content {
+        padding: 30px 20px;
+    }
+    .about-text p {
+        font-size: 15px;
+    }
+}
+
+/* --- 11. SCROLL (KAYDIRMA) ANİMASYONLARI --- */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px); /* 40 piksel aşağıdan başla */
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+/* JavaScript bu sınıfı eklediğinde eleman görünür olacak */
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Kendi orijinal konumuna gel */
+}

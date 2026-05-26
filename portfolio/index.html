@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yağız Yıldırım | Developer & Designer</title>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devyagizyildirim.com/">
+    <meta property="og:title" content="Yağız Yıldırım | Web Developer & Designer">
+    <meta property="og:description" content="Fikirleri şık tasarımlara, tasarımları kusursuz kodlara dönüştürüyorum. Dijital dünyadaki vitrininizi inceleyin.">
+    <meta property="og:image" content="https://devyagizyildirim.com/images/meta-cover.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-blob"></div>
+
+    <nav class="glass-nav">
+        <div class="container">
+            <a href="#" class="logo">Dev. Yağız</a>
+            <div class="nav-links">
+                <a href="#projects">Projeler</a>
+                <a href="#about">Hakkımda</a>
+                <a href="#contact" class="btn-sm">İletişime Geç</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <h1 class="animate-text">
+                Geleceği Tasarlayan <span class="accent-text">Kodlar</span>
+            </h1>
+            <p class="animate-text animation-delay-1">
+                Merhaba, ben Yağız Yıldırım. Fikirleri şık tasarımlara, tasarımları ise kusursuz kodlara dönüştürüyorum. Dijital dünyadaki vitrininizi oluşturmaya hazır mısınız?
+            </p>
+            <div class="hero-btns animate-text animation-delay-2">
+                <a href="#projects" class="btn-primary">Projelerimi Gör</a>
+                <a href="#contact" class="btn-secondary">Konuşalım</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Öne Çıkan <span class="accent-text">Çalışmalarım</span></h2>
+            
+            <div class="project-grid">
+                <div class="glass-card">
+                    <img src="images/evy1.png" alt="Ev Yemekleri" class="card-img">
+                    <div class="card-content">
+                        <h3>Ev Yemekleri</h3>
+                        <p>Modern arayüze sahip, kullanıcı dostu ve tamamen mobil uyumlu (responsive) kurumsal bir tasarım.</p>
+                        <div class="tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="evyemekleri/index.html" target="_blank" class="btn-sm">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <img src="images/burger1.png" alt="Fast Food Dükkanı" class="card-img">
+                    <div class="card-content">
+                        <h3>Fast Food Dükkanı</h3>
+                        <p>Karanlık tema ve cam efektlerinin kullanıldığı, performansı yüksek premium portfolyo arayüzü.</p>
+                        <div class="tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="fastfood-sokaklezzetleri/index.html" target="_blank" class="btn-sm">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <img src="images/kebap1.png" alt="Kebap Salonu" class="card-img">
+                    <div class="card-content">
+                        <h3>Kebap Salonu</h3>
+                        <p>Ürünlerin ön planda olduğu, sade ve dönüşüm odaklı şık bir e-ticaret vitrin tasarımı.</p>
+                        <div class="tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JS</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="kebap/index.html" target="_blank" class="btn-sm">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Ben <span class="accent-text">Kimim?</span></h2>
+            
+            <div class="about-content glass-card">
+                <div class="about-text">
+                    <p>
+                        Selam, ben Yağız! Dijital dünyada sadece kod yazmıyor, aynı zamanda kullanıcıların aklında yer edecek estetik deneyimler tasarlıyorum.
+                    </p>
+                    <p>
+                        Tasarımdaki detaylara olan takıntımı, yazılımın gücüyle birleştirerek "iyi" değil, "kusursuz" web siteleri üretmeyi hedefliyorum. Standart şablonların dışına çıkıp, her projeye kendi ruhunu katmayı seviyorum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Bir Projeniz mi Var? <span class="accent-text">Konuşalım</span></h2>
+            
+            <form name="yagiz-iletisim" method="POST" data-netlify="true" class="glass-form">
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız</label>
+                    <input type="text" id="name" name="name" required placeholder="Ad Soyad">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta Adresiniz</label>
+                    <input type="email" id="email" name="email" required placeholder="E-posta">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Kafanızdaki projeden kısaca bahsedin..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Mesajı Gönder</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        /* --- SCROLL ANİMASYONLARI (INTERSECTION OBSERVER) --- */
+        // Sitedeki başlıkları, kartları ve formu otomatik seçiyoruz
+        const animatedElements = document.querySelectorAll('.glass-card, .section-title, .about-content, .glass-form');
+        
+        // Bu elemanlara başlangıç animasyon sınıfını ekliyoruz
+        animatedElements.forEach(el => el.classList.add('scroll-animate'));
+
+        // Ekrana girip girmediklerini takip eden Gözlemci (Observer)
+        const observerOptions = {
+            threshold: 0.15 // Elemanın %15'i ekranda görünce animasyonu tetikle
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animasyon bir kere çalışsın, tekrarlamasın
+                }
+            });
+        }, observerOptions);
+
+        // Seçtiğimiz elemanları gözlemlemeye başla
+        animatedElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezzet Ev Yemekleri</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- GENEL AYARLAR --- */
+        :root {
+            --primary-green: #27ae60;
+            --light-green: #eafaf1;
+            --dark-text: #2c3e50;
+            --gray-text: #7f8c8d;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--dark-text);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .phone-btn {
+            background-color: var(--white);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* --- HERO BÖLÜMÜ --- */
+        .hero {
+            background: linear-gradient(135deg, var(--light-green) 0%, #d5f5e3 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--dark-text);
+            margin-bottom: 40px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: var(--white);
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* --- NEDEN BİZ? --- */
+        .features {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            flex: 1;
+            padding: 40px 20px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--light-green);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            background-color: var(--light-green);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--gray-text);
+            font-size: 15px;
+        }
+
+        /* --- HAFTALIK MENÜ --- */
+        .menu-section {
+            padding: 80px 0;
+            background-color: #fcfcfc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 50px;
+        }
+
+        .menu-table-wrapper {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 18px;
+            width: 20%;
+        }
+
+        td {
+            color: var(--dark-text);
+            font-size: 16px;
+        }
+
+        tr:last-child td, tr:last-child th {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fafafa;
+        }
+
+        /* --- TOPLU SİPARİŞ --- */
+        .bulk-order {
+            padding: 80px 0;
+            background-color: var(--primary-green);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .bulk-order h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .bulk-order p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .bulk-btn {
+            background-color: var(--white);
+            color: var(--primary-green);
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .bulk-btn:hover {
+            background-color: var(--light-green);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 60px 0 20px 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-green);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            color: #b3b3b3;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* --- MOBİL UYUM (RESPONSIVE) --- */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; height: auto; padding: 20px 0; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .hero h1 { font-size: 32px; }
+            .features-grid, .footer-grid { flex-direction: column; }
+            table, thead, tbody, th, td, tr { display: block; }
+            th { text-align: center; border-bottom: none; background-color: var(--light-green); }
+            td { text-align: center; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">LezzetEv</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Ana Sayfa</a></li>
+                    <li><a href="#features">Neden Biz?</a></li>
+                    <li><a href="#menu">Haftalık Menü</a></li>
+                    <li><a href="#footer">İletişim</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+905550000000" class="phone-btn">
+                <i class="fa-solid fa-phone"></i> 0555 000 00 00
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO BÖLÜMÜ -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Her Gün Taze, Her Gün Anne Eli</h1>
+            <p>En kaliteli malzemelerle, hijyenik mutfağımızda sevgiyle hazırlanan ev yemekleri.</p>
+            <!-- WhatsApp numarası için wa.me bağlantısı (Kendi numaranızı ekleyin) -->
+            <a href="https://wa.me/905550000000?text=Merhaba,%20bugünün%20menüsünü%20öğrenebilir%20miyim?" target="_blank" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i> Günün Menüsünü Sor
+            </a>
+        </div>
+    </section>
+
+    <!-- NEDEN BİZ? -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Neden Biz?</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3>Günlük Taze</h3>
+                    <p>Yemeklerimiz dünden kalmaz. Her sabah taze sebzeler ve özenle seçilmiş etlerle günlük olarak pişirilir.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h3>Katkısız Ürünler</h3>
+                    <p>Bulyon, koruyucu veya yapay tatlandırıcılar kullanmıyoruz. Gerçek kemik suyu ve doğal baharatlarla lezzetlendiriyoruz.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <h3>Uygun Fiyat</h3>
+                    <p>Kaliteden ödün vermeden, herkesin sağlıklı ev yemeğine ulaşabilmesi için bütçe dostu porsiyon fiyatları sunuyoruz.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HAFTALIK MENÜ -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Bu Haftanın Menüsü</h2>
+            <div class="menu-table-wrapper">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Pazartesi</th>
+                            <td>Süzme Mercimek Çorbası, Karnıyarık, Tereyağlı Pirinç Pilavı, Cacık</td>
+                        </tr>
+                        <tr>
+                            <th>Salı</th>
+                            <td>Ezogelin Çorbası, Sebzeli Tavuk Sote, Fırın Makarna, Mevsim Salata</td>
+                        </tr>
+                        <tr>
+                            <th>Çarşamba</th>
+                            <td>Domates Çorbası, İzmir Köfte, Siyez Bulgur Pilavı, Ev Yapımı Supangle</td>
+                        </tr>
+                        <tr>
+                            <th>Perşembe</th>
+                            <td>Yayla Çorbası, Etli Kuru Fasulye, Şehriyeli Pilav, Karışık Turşu</td>
+                        </tr>
+                        <tr>
+                            <th>Cuma</th>
+                            <td>Tarhana Çorbası, Fırın Levrek, Patates Püresi, Roka Salatası</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOPLU SİPARİŞ -->
+    <section id="corporate" class="bulk-order">
+        <div class="container">
+            <h2>İş Yerinize Özel Menüler</h2>
+            <p>Çalışanlarınızın sağlıklı ve lezzetli ev yemekleri tüketmesi için kurumsal çözümler sunuyoruz. Şirketinize özel avantajlı fiyatlar için bizimle iletişime geçin.</p>
+            <a href="mailto:info@lezzetev.com" class="bulk-btn">Toplu Yemek Teklifi Al</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Örnek Mah. Lezzet Sokak No: 12, Kadıköy / İstanbul</p>
+                    <p><i class="fa-solid fa-phone"></i> 0555 000 00 00</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@lezzetev.com</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Çalışma Saatleri</h4>
+                    <p>Pazartesi - Cuma: 08:30 - 20:00</p>
+                    <p>Cumartesi: 09:00 - 18:00</p>
+                    <p>Pazar: Kapalı</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Konumumuz</h4>
+                    <!-- Temsili Google Haritalar iFrame (Gerçek harita linkinizle değiştirebilirsiniz) -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.65049964593!2d29.0253456!3d40.989345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDU5JzIxLjYiTiAyOcKwMDEnMzEuMiJF!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 Lezzet Ev Yemekleri. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
