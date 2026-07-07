@@ -450,3 +450,20 @@ html {
     opacity: 1;
     transform: translateY(0); /* Kendi orijinal konumuna gel */
 }
+
+.btn-main {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: 30px;
+    transition: var(--transition-smooth);
+    font-weight: 600;
+}
+
+.btn-main:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
